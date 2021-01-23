@@ -14,15 +14,19 @@ height: 300px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 5px;
     
 }
-.submitbtn{
+.submitBtn{
     background-color: #01587A;
     color:#E1E8EC;
     border-radius: 5px;
     margin: 10px;
 
 }
-.submitbtn :hover{
+.submitBtn :hover{
     
+}
+.hide {
+    display: none;
 }
