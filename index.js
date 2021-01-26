@@ -9,6 +9,7 @@ $(".submitBtn").on("click", function(event){
     var cityName = $("#search").val().trim();
     console.log(cityName);
     omNomNom();
+hotels();
 })
 
 
@@ -29,3 +30,21 @@ function omNomNom(){
         console.log(response);
       });
     }
+
+function hotels() {
+  var cityName = $("#search").val().trim();
+  const settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://hotels4.p.rapidapi.com/locations/search?query="+cityName+"&locale=en_US",
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
+      "x-rapidapi-host": "hotels4.p.rapidapi.com"
+    }
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
