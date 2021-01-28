@@ -1,8 +1,15 @@
 $(".default").on("click", function(){
 $("#inputBox").addClass("hide");
+$(".itinerary").removeClass("hide");
 // console.log("works")
 })
 
+$(".listBtn").on("click",function(){
+  var list = $(".thingsToDo").val().trim();
+  var listItems= document.createElement("li");
+  listItems.textContent=list;
+  $(".listBtn").append(listItems);
+})
 
 $(".submitBtn").on("click", function(event){
     event.preventDefault();
@@ -10,7 +17,6 @@ $(".submitBtn").on("click", function(event){
     console.log(cityName);
     omNomNom();
 })
-
 
 
 function omNomNom(){
