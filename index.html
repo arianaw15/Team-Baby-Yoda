@@ -21,66 +21,42 @@
       href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Comfortaa:wght@300&display=swap"
       rel="stylesheet"
     />
-  </head>
+        
+   </head>
 
-  <body>
-    <nav>
-      <div id="pgtwo" class="nav-wrapper">
-        <a href="WR Logo.PNG" class="brand-logo"
-          ><i class="material-icons">WR</i></a
-        >
-        <ul class="right hide-on-med-and-down">
-          <li>
-            <button><i class="material-icons foodBtn">search</i></button>
-          </li>
-          <li>
-            <a href="badges.html"><i class="material-icons">view_module</i></a>
-          </li>
-          <li>
-            <a href="collapsible.html"><i class="material-icons">refresh</i></a>
-          </li>
-          <li>
-            <a href="mobile.html"><i class="material-icons">more_vert</i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <body>
+      <nav>
+        <div id="pgtwo" class="nav-wrapper">
+          <img src="WR Logo.PNG" style="height: 60px; margin-left:20px;">
+      <ul class="right hide-on-med-and-down">
+        <li><i class="material-icons foodBtn" style="color: #F9D002;">restaurant</i></li>
+        <li><a href="badges.html"><i class="material-icons" style="color: #F9D002;">local_hotel</i></a></li>
+        <li><a href="collapsible.html"><i class="material-icons" style="color: #F9D002;">local_airport</i></a></li>
+        <li><a href="mobile.html"s></a><i class="material-icons" style="color: #F9D002;">event_note</i></a></li>
+      </ul>
+        </div>
+      </nav>
 
-    <div id="inputBox" class="container">
-      <h1>Where are you traveling?</h1>
-      <div class="form-group">
-        <form for="">
-          <div class="input-field">
-            <input
-              type="search"
-              name=""
-              id="search"
-              class="form-control"
-              placeholder="Location"
-              aria-describedby="helpId"
-              style="
-                text-align: center;
-                font-weight: bolder;
-                background-color: cadetblue;
-                font-size: 25px;
-                font-family: 'Comfortaa', cursive, 'Assistant', sans-serif;
-              "
-              required
-            />
-            <small id="helpId" class="text-muted"></small>
-            <button class="btn default submitBtn" style="font-weight: light">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="container itinerary hide">
-      <div class="row food">
-        <div class="col s2">
-          Things to Do
-          <input type="text" class="thingsToDo" />
-          <div class="listBtn"><button>Add to List</button><br /></div>
+<div id = "inputBox" class="container hoverable z-depth-5">
+    <h1>Where are you traveling?</h1>
+    <div class="form-group">
+      <form for="">
+        <div class="input-field">
+         <input type="search" name="" id="search" class="form-control" placeholder="Location" aria-describedby="helpId"  required>
+         <small id="helpId" class="text-muted"></small>
+         <button class="btn default submitBtn">Submit</button>
+        </div>
+      </form>
+    </div> 
+</div>
+<div class="itinerary hide">
+    <div class="row food">
+      <div class="col s2">Things to Do
+        <input type="text" class="thingsToDo">
+        <div class="listBtn">
+          <button id="list">
+            Add to List
+          </button><br>
         </div>
         <div class="col s10">Other Fields</div>
         <div class="rest"></div>
