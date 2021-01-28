@@ -58,3 +58,17 @@ color: black;
     border: none;
     background-color: #F9D002;
 }
+
+.itinerary{
+
+}
+
+.Ttd{
+    float: left;
+    background-color: white;
+}
+
+.Ofields{
+    float:right;
+    background-color:white;
+}

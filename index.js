@@ -1,6 +1,7 @@
 $(".default").on("click", function () {
   $("#inputBox").addClass("hide");
   $(".itinerary").removeClass("hide");
+  storeBtn();
   // console.log("works")
 });
 
@@ -15,28 +16,22 @@ $(".submitBtn").on("click", function (event) {
   event.preventDefault();
   var cityName = $("#search").val().trim();
   console.log(cityName);
-  omNomNom();
-  hotels();
+  // omNomNom();
+  // hotels();
 });
 // $(".foodBtn").on("click", function () {
 //   omNomNom();
 // });
 function omNomNom() {
-  var APIKey = "ccfafb472d62ea2ef5624c2697d65c8c";
+  var APIKey = "g7B4WVMjT94MP1O6IxTnzv7us4MV7VSy223cYSOwu1GAbCXhkrA-zikEeduFrSK1p_gYLePrYLDdWUEYZlr2kaqFwmZMt4iDcrjIKZiK4FIlyIqEo7yXYuCR6UMTYHYx";
   var cityName = $("#search").val().trim();
-  var settings = {
-    url: "https://developers.zomato.com/api/v2.1/search?q=" + cityName,
+  var queryUrl = "https://api.yelp.com/v3/businesses/search?location="+cityName+"&";
+  $.ajax({
+    url:queryUrl,
     method: "GET",
-    timeout: 0,
-    headers: {
-      "user-key": APIKey,
-    },
-  };
-  console.log(settings.url);
-  console.log(settings.headers);
-  $.ajax(settings).done(function (response) {
+  }).then(function(response){
     console.log(response);
-  });
+  })
 }
 
 function hotels() {
@@ -57,5 +52,29 @@ function hotels() {
 
   $.ajax(settings).done(function (response) {
     console.log(response);
+    console.log(response.suggestions[1].entities[0].name);
+    
+    $(".hotelLst").append(response.suggestions[1].entities[0].name);
   });
 }
+
+$(".foodBtn").on("click",function(){
+  $(".Ofields").text("Food");
+  omNomNom();
+})
+$(".hotelBtn").on("click",function(){
+  $(".Ofields").text("Hotels");
+  hotels();
+})
+
+function storeBtn(){
+  var cityName = $("#search").val().trim();
+  localStorage.setItem("City Name",cityName);
+}
+
+function getBtn(){
+  var storageName=localStorage.getItem("City Name")
+  $(".submitBtn").append(storageName);
+  console.log(storageName);
+}
+getBtn();
