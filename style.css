@@ -5,11 +5,19 @@ body{
     background-color: #99D8DD;
     align-items: center;
 }
+
+.nav-wrapper{
+    background-color: whitesmoke;
+    color: #F9D002;
+    margin-top: 20px;
+}
+
 .container {
-background-color: #F9D002;
-font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
-width: 55%;
-height: 360px;
+    background-color: white;
+    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
+    border-color:rgb(65, 63, 63);
+    width: 55%;
+    height: 360px;
     border-radius: 7px;
     text-align: center;
     display: block;
@@ -21,10 +29,13 @@ height: 360px;
     
 }
 .submitBtn{
-    background-color: #01587A;
+    background-color: #19779c;
+    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
     color:#E1E8EC;
     border-radius: 5px;
     margin: 10px;
+    font-weight: normal;
+
 }
 .default:hover{
 background-color:#beedf0;
@@ -35,6 +46,15 @@ color: black;
     display: none;
 }
 
-.nav-wrapper{
+#search {
+    text-align: center; 
+    font-weight:bolder; 
+    background-color:#F9D002;
+    font-size: 20px;
+    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
+}
+
+#list{
+    border: none;
     background-color: #F9D002;
 }
