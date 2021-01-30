@@ -8,11 +8,13 @@ body{
 }
 
 #inputBox {
-background-color: #F9D002;
+background-color: rgb(255,255,255);
 width: 50%;
-height: 300px;
-    border-radius: 5px;
+
+height: 370px;
+border-radius: 5px;
 }
+
 
 .nav-wrapper{
     background-color: rgb(255,255,255);

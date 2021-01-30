@@ -17,7 +17,6 @@ for (let index = 0; index < toDoArr.length; index++) {
   $(".listBtn").append(listItems);
 }
 
-
 var months = ["Jan","Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 $('.dropdown-trigger').dropdown()
 
