@@ -5,11 +5,13 @@ $(".default").on("click", function () {
   // console.log("works")
 });
 
-$(".listBtn").on("click", function () {
+$("#list").on("click", function (event) {
+  event.preventDefault();
   var list = $(".thingsToDo").val().trim();
   var listItems = document.createElement("li");
   listItems.textContent = list;
   $(".listBtn").append(listItems);
+  $(".thingsToDo").empty();
 });
 
 $(".submitBtn").on("click", function (event) {
@@ -53,9 +55,12 @@ function hotels() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     console.log(response.suggestions[1].entities[0].name);
+    var hotelList = document.createElement("div");
+    hotelList.append(response.suggestions[1].entities[0].name);
     
-    $(".hotelLst").append(response.suggestions[1].entities[0].name);
-  });
+  $(".Ofields").append(hotelList);
+  
+   });
 }
 
 $(".foodBtn").on("click",function(){
@@ -63,8 +68,8 @@ $(".foodBtn").on("click",function(){
   omNomNom();
 })
 $(".hotelBtn").on("click",function(){
-  $(".Ofields").text("Hotels");
   hotels();
+  $(".Ofields").text("Hotel")
 })
 
 function storeBtn(){
@@ -74,7 +79,7 @@ function storeBtn(){
 
 function getBtn(){
   var storageName=localStorage.getItem("City Name")
-  $(".submitBtn").append(storageName);
+  $(".form-control").attr("value", storageName);
   console.log(storageName);
 }
 getBtn();
