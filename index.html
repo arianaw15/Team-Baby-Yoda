@@ -1,32 +1,70 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.css"  media="screen,projection"/>
-        <link rel="stylesheet" href="style.css">
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      </head>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./materialize/css/materialize.css"
+      media="screen,projection"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Comfortaa:wght@300&display=swap"
+      rel="stylesheet"
+    />
+        
+   </head>
 
     <body>
-<div id = "inputBox" class="container">
+      <nav>
+        <div class="nav-wrapper">
+          <img src="WR Logo.PNG" style="height: 60px; margin-left:20px;">
+      <ul class="right hide-on-med-and-down">
+        <li><a><i class="material-icons foodBtn" style="color: #F9D002;">restaurant</i></a></li>
+        <li><a><i class="material-icons hotelBtn" style="color: #F9D002;">local_hotel</i></a></li>
+        <li><a><i class="material-icons" style="color: #F9D002;">local_airport</i></a></li>
+        <li><a></a><i class="material-icons" style="color: #F9D002;">event_note</i></a></li>
+      </ul>
+        </div>
+      </nav>
+
+<div id = "inputBox" class="container hoverable z-depth-5">
     <h1>Where are you traveling?</h1>
     <div class="form-group">
-      <label for=""></label>
-      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted"></small>
-    </div>
-    <div>
-        <button class="submitBtn"> Submit </button>
-    </div>
-    
+      <form for="">
+        <div class="input-field">
+         <input type="search" name="" id="search" class="form-control" value="Location" aria-describedby="helpId" required>
+         <small id="helpId" class="text-muted"></small>
+         <button class="btn default submitBtn">Submit</button>
+        </div>
+      </form>
+    </div> 
 </div>
-
-
-  
-  <!-- <div class="calendar-btn year-btn">
+<div class="itinerary hide ">
+    <div class="row food">
+      <div class="grid-example col s12 m6 Ttd">Things to Do
+        <input type="text" class="thingsToDo">
+        <div class="listBtn">
+          <button id="list">
+            Add to List
+          </button><br>
+        </div>
+      </div>
+        <div class="col s9 Ofields">Itinerary
+          <div class="hotelLst"></div>
+        </div>
+        </div>
+      </div>
+<!-- <div class="calendar-btn year-btn">
       <span id="curYear"></span>
       <div id="years" class="years dropdown"></div>
   </div> -->
@@ -75,10 +113,19 @@
     
 </div>
 </div>
+    </div>
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-      <script type="text/javascript" src="./materialize/js/materialize.js"></script>
-      <script src="index.js"></script>
-    </body>
-  </html>
+    <!--JavaScript at end of body for optimized loading-->
+    <script
+      src="http://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./materialize/js/materialize.js"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
+

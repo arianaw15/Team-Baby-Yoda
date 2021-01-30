@@ -5,31 +5,55 @@ body{
     background-color: #99D8DD;
     align-items: center;
 }
+
 #inputBox {
 background-color: #F9D002;
 width: 50%;
 height: 300px;
     border-radius: 5px;
+
+
+.nav-wrapper{
+    background-color: whitesmoke;
+    color: #F9D002;
+    margin-top: 20px;
+}
+
+.container {
+    background-color: white;
+    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
+    border-color:rgb(65, 63, 63);
+    width: 55%;
+    height: 360px;
+    border-radius: 7px;
+
     text-align: center;
     display: block;
+    margin-top: 80px;
+    margin-bottom: 220px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 5px;
+    padding-top: 10px;
     
 }
 .submitBtn{
-    background-color: #01587A;
+    background-color: #19779c;
+    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
     color:#E1E8EC;
     border-radius: 5px;
     margin: 10px;
+    font-weight: normal;
 
 }
-.submitBtn :hover{
-    
+.default:hover{
+background-color:#beedf0;
+color: black;
 }
+
 .hide {
     display: none;
 }
+
 
 .day {
     height: 90px;
@@ -75,3 +99,34 @@ th{
 h3{
     margin: 0;
 }
+
+  
+#search {
+    text-align: center; 
+    font-weight:bolder; 
+    background-color:#F9D002;
+    font-size: 20px;
+    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
+}
+
+#list{
+    border: none;
+    background-color: #F9D002;
+}
+
+.itinerary{
+    margin-top: 50px;
+    border-radius: 2rem;
+
+}
+
+.Ttd{
+    float: left;
+    background-color: white;
+}
+
+.Ofields{
+    float:right;
+    background-color:white;
+}
+
