@@ -1,3 +1,16 @@
+
+if (localStorage.getItem("toDoArr") == null) {
+  var toDoArr = [];
+} else {
+  var toDoArr = JSON.parse(localStorage.getItem("toDoArr"));
+}
+for (let index = 0; index < toDoArr.length; index++) {
+  var toDo = toDoArr[index];
+  var listItems = document.createElement("li");
+  listItems.textContent = toDo;
+  $(".listBtn").append(listItems);
+}
+
 var months = ["Jan","Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 $('.dropdown-trigger').dropdown()
 
@@ -137,7 +150,11 @@ $("#list").on("click", function (event) {
   var listItems = document.createElement("li");
   listItems.textContent = list;
   $(".listBtn").append(listItems);
+  toDoArr.push(list);
+  localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
+
   $(".thingsToDo").empty();
+
 });
 
 $(".submitBtn").on("click", function (event) {
@@ -151,15 +168,17 @@ $(".submitBtn").on("click", function (event) {
 //   omNomNom();
 // });
 function omNomNom() {
-  var APIKey = "g7B4WVMjT94MP1O6IxTnzv7us4MV7VSy223cYSOwu1GAbCXhkrA-zikEeduFrSK1p_gYLePrYLDdWUEYZlr2kaqFwmZMt4iDcrjIKZiK4FIlyIqEo7yXYuCR6UMTYHYx";
+  var APIKey =
+    "g7B4WVMjT94MP1O6IxTnzv7us4MV7VSy223cYSOwu1GAbCXhkrA-zikEeduFrSK1p_gYLePrYLDdWUEYZlr2kaqFwmZMt4iDcrjIKZiK4FIlyIqEo7yXYuCR6UMTYHYx";
   var cityName = $("#search").val().trim();
-  var queryUrl = "https://api.yelp.com/v3/businesses/search?location="+cityName+"&";
+  var queryUrl =
+    "https://api.yelp.com/v3/businesses/search?location=" + cityName + "&";
   $.ajax({
-    url:queryUrl,
+    url: queryUrl,
     method: "GET",
-  }).then(function(response){
+  }).then(function (response) {
     console.log(response);
-  })
+  });
 }
 
 function hotels() {
@@ -187,21 +206,24 @@ function hotels() {
   $(".Ofields").append(hotelList);
   
    });
+
 }
 
-$(".foodBtn").on("click",function(){
+$(".foodBtn").on("click", function () {
   $(".Ofields").text("Food");
   omNomNom();
-})
-$(".hotelBtn").on("click",function(){
-  hotels();
-  $(".Ofields").text("Hotel")
-})
 
-function storeBtn(){
+});
+$(".hotelBtn").on("click", function () {
+  $(".Ofields").text("Hotels");
+  hotels();
+});
+
+function storeBtn() {
   var cityName = $("#search").val().trim();
-  localStorage.setItem("City Name",cityName);
+  localStorage.setItem("City Name", cityName);
 }
+
 
 function getBtn(){
   var storageName=localStorage.getItem("City Name")
@@ -209,4 +231,5 @@ function getBtn(){
   console.log(storageName);
 }
 getBtn();
+
 
