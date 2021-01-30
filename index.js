@@ -154,14 +154,21 @@ $(".default").on("click", function () {
 $("#list").on("click", function (event) {
   event.preventDefault();
   var list = $(".thingsToDo").val().trim();
-  var listItems = document.createElement("li");
-  listItems.textContent = list;
+  var listItems = $("<li>");
+  listItems.text(list);
+  listItems.attr("id", "drag1")
+  listItems.attr("ondragstart", "drag(event)")
+  listItems.attr("draggable", "true")
   $(".listBtn").append(listItems);
   toDoArr.push(list);
   localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
 
   $(".thingsToDo").empty();
 
+});
+
+$("#clear").on("click", function () {
+    localStorage.clear(getItem)
 });
 
 $(".submitBtn").on("click", function (event) {
@@ -238,5 +245,3 @@ function getBtn(){
   console.log(storageName);
 }
 getBtn();
-
-
