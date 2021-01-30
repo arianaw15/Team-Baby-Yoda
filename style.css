@@ -11,10 +11,9 @@ body{
 background-color: rgb(255,255,255);
 width: 50%;
 
-height: 370px;
-border-radius: 5px;
+height: 300px;
+    border-radius: 5px;
 }
-
 
 .nav-wrapper{
     background-color: rgb(255,255,255);
@@ -110,6 +109,13 @@ h3{
 }
 
 #list{
+    border: none;
+    background-color: #F9D002;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+#clear{
     border: none;
     background-color: #F9D002;
     padding: 5px;
