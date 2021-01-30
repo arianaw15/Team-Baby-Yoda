@@ -5,17 +5,21 @@ const sideNav = document.querySelector('.sidenav');
 M.Sidenav.init(sideNav, {});
 
 
-if (localStorage.getItem("toDoArr") == null) {
-  var toDoArr = [];
-} else {
-  var toDoArr = JSON.parse(localStorage.getItem("toDoArr"));
-}
-for (let index = 0; index < toDoArr.length; index++) {
-  var toDo = toDoArr[index];
-  var listItems = document.createElement("li");
-  listItems.textContent = toDo;
-  $(".listBtn").append(listItems);
-}
+// if (localStorage.getItem("toDoArr") == null) {
+//   var toDoArr = [];
+//   var listItems = document.createElement("li");
+//   listItems.textContent = toDoArr;
+//   $(".listBtn").append(listItems);
+//   }
+//  else {
+//   var toDoArr = JSON.parse(localStorage.getItem("toDoArr"))
+// }
+// for (let index = 0; index < toDoArr.length; index++) {
+//   var toDo = toDoArr[index];
+//   var listItems = document.createElement("li");
+//   listItems.textContent = toDo;
+//   $(".listBtn").append(listItems);
+// }
 
 var months = ["Jan","Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 $('.dropdown-trigger').dropdown()
@@ -166,14 +170,16 @@ $("#list").on("click", function (event) {
 
 });
 
-$("#clear").on("click", function () {
-    localStorage.clear(getItem)
+$("#clear").on("click", function(){
+    setLocalStorage("toDoArr",empty);
+
 });
 
 $(".submitBtn").on("click", function (event) {
   event.preventDefault();
   var cityName = $("#search").val().trim();
   console.log(cityName);
+  localStorage.setItem("toDoArr", cityName);
 });
 
 function omNomNom() {
@@ -208,10 +214,11 @@ function hotels() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     console.log(response.suggestions[1].entities[0].name);
-    var hotelList = document.createElement("div");
-    hotelList.append(response.suggestions[1].entities[0].name);
+    var hotel1 = $("<div>").text(response.suggestions[1].entities[0].name)
+    var hotel2 = $("<div>").text(response.suggestions[1].entities[1].name)
+    var hotel3 = $("<div>").text(response.suggestions[1].entities[2].name)
     
-  $(".Ofields").append(hotelList);
+  $(".Ofields").append(hotel1,hotel2,hotel3);
   
    });
 
@@ -227,6 +234,11 @@ $(".hotelBtn").on("click", function () {
   hotels();
 });
 
+$(".eventBtn").on("click",function(){
+  $(".Ofields").text("Calendar");
+  calendarBtn();
+})
+
 function storeBtn() {
   var cityName = $("#search").val().trim();
   localStorage.setItem("City Name", cityName);
@@ -239,3 +251,41 @@ function getBtn(){
   console.log(storageName);
 }
 getBtn();
+
+function calendarBtn(){
+  $(".days").removeClass("hide");
+}
+
+function sites() {
+  var cityName = $("#search").val().trim();
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url:
+      "https://hotels4.p.rapidapi.com/locations/search?query=" +
+      cityName +
+      "&locale=en_US",
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
+      "x-rapidapi-host": "hotels4.p.rapidapi.com",
+    },
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    console.log(response.suggestions[2].entities[0].name);
+  var site1 = $("<div>").text(response.suggestions[2].entities[0].name)
+  var site2 = $("<div>").text(response.suggestions[2].entities[1].name)
+  var site3 = $("<div>").text(response.suggestions[2].entities[2].name)
+  
+$(".Ofields").append(site1,site2,site3);
+  
+   });
+
+}
+
+$(".wanderBtn").on("click",function(){
+  $(".Ofields").text("Sites");
+  sites();
+})
