@@ -26,14 +26,32 @@
 
     <body>
       <nav>
-        <div class="nav-wrapper" style="color:rgb(255,255,255);">
-          <img src="WR Logo.PNG" style="height: 60px; margin-left:20px;" class="circle responsive-img">
+        <div class="nav-wrapper radio-group" style="color:rgb(255,255,255);">
+          <img src="WR Logo.PNG" style="height: 60px; margin-left:20px;" class="circle responsive-img"><label>
+            <input type="radio" name="rotate-cube-side" value="angle" checked />
+          </label>
           <a href="#" data-target="mobile-nav" class="right sidenav-trigger" style="color:#F9D002 ;"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
-          <li><a><i class="material-icons weatherBtn" style="color: #F9D002;">wb_sunny</i></a></li>
-          <li><a><i class="material-icons hotelBtn" style="color: #F9D002;">local_hotel</i></a></li>
-          <li><a><i class="material-icons wanderBtn" style="color: #F9D002;">directions_walk</i></a></li>
-          <li><a><i class="material-icons eventBtn" style="color: #F9D002;">event_note</i></a></li>
+           <li><a><label>
+            <input type="radio" name="rotate-cube-side" value="bottom" /><i class="material-icons weatherBtn" style="color: #F9D002;">wb_sunny</i>
+          </label></a></li>
+          <!-- <li><a>
+            <label>
+            <input type="radio" name="rotate-cube-side" value="angle" checked />
+          </label>
+            </a></li> -->
+          <li><a>
+            <label>
+              <input type="radio" name="rotate-cube-side" value="front" /><i class="material-icons hotelBtn" style="color: #F9D002;">local_hotel</i>
+            </label></a></li>
+          <li><a>
+            <label>
+              <input type="radio" name="rotate-cube-side" value="left" /> <i class="material-icons wanderBtn" style="color: #F9D002;">directions_walk</i>
+            </label></a></li>
+          <li><a>
+            <label>
+              <input type="radio" name="rotate-cube-side" value="back" /><i class="material-icons eventBtn" style="color: #F9D002;">event_note</i>
+            </label></a></li>
          </ul>
         </div>
       </nav>
@@ -70,11 +88,11 @@
             Clear
           </button><br>
         </div>
-      </div>
+      <!-- </div>
         <div class="col s5 offset-s1 Ofields">Itinerary:
           <div class="hotelLst"></div>
         </div>
-        </div>
+        </div> -->
       </div>
 <!-- <div class="calendar-btn year-btn">
       <span id="curYear"></span>
@@ -126,6 +144,27 @@
 </div>
 </div>
     </div>
+
+<div class="cube hide">
+  <div class="cube-container">
+
+    <div class="scene">
+      <div class="box">
+        <div class="box__face box__face--front">Hotels
+          <p class="col s5 offset-s1 Ofields">
+            <div class="hotelLst"></div>
+          </p>
+        </div>
+        <div class="box__face box__face--right">Team Yoda</div>
+        <div class="box__face box__face--back">Calendar</div>
+        <div class="box__face box__face--left">Sites</div>
+        <div class="box__face box__face--top"><img src="WR Logo.PNG" style="height: 60px; margin-left:20px;" class="circle responsive-img"></div>
+        <div class="box__face box__face--bottom">Weather</div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
     <!--JavaScript at end of body for optimized loading-->
     <script
