@@ -1,4 +1,10 @@
 
+
+//sidenav
+const sideNav = document.querySelector('.sidenav');
+M.Sidenav.init(sideNav, {});
+
+
 if (localStorage.getItem("toDoArr") == null) {
   var toDoArr = [];
 } else {
@@ -10,6 +16,7 @@ for (let index = 0; index < toDoArr.length; index++) {
   listItems.textContent = toDo;
   $(".listBtn").append(listItems);
 }
+
 
 var months = ["Jan","Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 $('.dropdown-trigger').dropdown()

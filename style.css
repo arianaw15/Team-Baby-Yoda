@@ -4,6 +4,7 @@ head{
 body{
     background-color: #99D8DD;
     align-items: center;
+    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
 }
 
 #inputBox {
@@ -14,14 +15,13 @@ height: 300px;
 
 
 .nav-wrapper{
-    background-color: whitesmoke;
+    background-color: rgb(255,255,255);
     color: #F9D002;
     margin-top: 20px;
 }
 
 .container {
     background-color: white;
-    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
     border-color:rgb(65, 63, 63);
     width: 55%;
     height: 360px;
@@ -38,7 +38,6 @@ height: 300px;
 }
 .submitBtn{
     background-color: #19779c;
-    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
     color:#E1E8EC;
     border-radius: 5px;
     margin: 10px;
@@ -106,27 +105,29 @@ h3{
     font-weight:bolder; 
     background-color:#F9D002;
     font-size: 20px;
-    font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
 }
 
 #list{
     border: none;
     background-color: #F9D002;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .itinerary{
     margin-top: 50px;
-    border-radius: 2rem;
 
 }
 
 .Ttd{
-    float: left;
-    background-color: white;
+    font-size: 18px;
+    font-weight: bold;
+    
 }
 
 .Ofields{
-    float:right;
-    background-color:white;
+    font-size: 18px;
+    font-weight: bold;
+    
 }
 
