@@ -167,18 +167,13 @@ $(".submitBtn").on("click", function (event) {
   event.preventDefault();
   var cityName = $("#search").val().trim();
   console.log(cityName);
-  // omNomNom();
-  // hotels();
 });
-// $(".foodBtn").on("click", function () {
-//   omNomNom();
-// });
+
 function omNomNom() {
-  var APIKey =
-    "g7B4WVMjT94MP1O6IxTnzv7us4MV7VSy223cYSOwu1GAbCXhkrA-zikEeduFrSK1p_gYLePrYLDdWUEYZlr2kaqFwmZMt4iDcrjIKZiK4FIlyIqEo7yXYuCR6UMTYHYx";
+  var APIKey = "78c8bb055391228975fd9d7974ac9137";
   var cityName = $("#search").val().trim();
-  var queryUrl =
-    "https://api.yelp.com/v3/businesses/search?location=" + cityName + "&";
+  var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid="+APIKey;
+  
   $.ajax({
     url: queryUrl,
     method: "GET",
@@ -215,8 +210,8 @@ function hotels() {
 
 }
 
-$(".foodBtn").on("click", function () {
-  $(".Ofields").text("Food");
+$(".weatherBtn").on("click", function () {
+  $(".Ofields").text("Weather");
   omNomNom();
 
 });
