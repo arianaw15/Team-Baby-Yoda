@@ -2,6 +2,143 @@
 const sideNav = document.querySelector(".sidenav");
 M.Sidenav.init(sideNav, {});
 
+
+
+$(".submitBtn").on("click", function (event) {
+  event.preventDefault();
+  var cityName = $("#search").val().trim();
+  console.log(cityName);
+  // localStorage.setItem("toDoArr", cityName);
+});
+
+//Weather Button + Function
+
+function omNomNom() {
+  var APIKey = "78c8bb055391228975fd9d7974ac9137";
+  var cityName = $("#search").val().trim();
+  var queryUrl =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    cityName +
+    "&appid=" +
+    APIKey;
+
+  $.ajax({
+    url: queryUrl,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+  });
+}
+
+$(".weatherBtn").on("click", function () {
+  $(".Ofields").text("Weather");
+  omNomNom();
+});
+
+//Hotel Button + Function
+function hotels() {
+  var cityName = $("#search").val().trim();
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url:
+      "https://hotels4.p.rapidapi.com/locations/search?query=" +
+      cityName +
+      "&locale=en_US",
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
+      "x-rapidapi-host": "hotels4.p.rapidapi.com",
+    },
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    console.log(response.suggestions[1].entities[0].name);
+    var hotel1 = $("<p>").text(response.suggestions[1].entities[0].name);
+    var hotel2 = $("<p>").text(response.suggestions[1].entities[1].name);
+    var hotel3 = $("<p>").text(response.suggestions[1].entities[2].name);
+$(".hotelBox").removeClass("hide");
+    $(".hotelBox").append(hotel1, hotel2, hotel3);
+  });
+}
+
+$(".hotelBtn").on("click", function () {
+  $(".Ofields").text("Hotels");
+  hotels();
+});
+
+//Storing + Retrieving City Name
+
+function storeBtn() {
+  var cityName = $("#search").val().trim();
+  localStorage.setItem("City Name", cityName);
+}
+
+function getBtn() {
+  var storageName = localStorage.getItem("City Name");
+  $(".form-control").attr("value", storageName);
+  console.log(storageName);
+}
+getBtn();
+
+//Sites Button + Function
+
+function sites() {
+  var cityName = $("#search").val().trim();
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url:
+      "https://hotels4.p.rapidapi.com/locations/search?query=" +
+      cityName +
+      "&locale=en_US",
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
+      "x-rapidapi-host": "hotels4.p.rapidapi.com",
+    },
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    console.log(response.suggestions[2].entities[0].name);
+    var site1 = (response.suggestions[2].entities[0].name);
+    var site2 = (response.suggestions[2].entities[1].name);
+    var site3 = (response.suggestions[2].entities[2].name);
+
+    $(".Ofields").text(site1).append(site2, site3);
+  });
+}
+
+$(".wanderBtn").on("click", function () {
+  $(".Ofields").text("Sites");
+  sites();
+});
+
+$(".default").on("click", function () {
+  $("#inputBox").addClass("hide");
+  $(".itinerary").removeClass("hide");
+  $(".cube").removeClass("hide");
+  storeBtn();
+});
+
+//Things to Do List + Drag and Drop  Function
+$("#list").on("click", function (event) {
+  event.preventDefault();
+  var list = $(".thingsToDo").val().trim();
+  var listItems = $("<li>");
+  listItems.text(list);
+  listItems.attr("id", "drag1");
+  listItems.attr("ondragstart", "drag(event)");
+  listItems.attr("draggable", "true");
+  $(".listBtn").append(listItems);
+  toDoArr.push(list);
+  localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
+
+  $(".thingsToDo").empty();
+});
+
 if (localStorage.getItem("toDoArr") == null) {
   var toDoArr = [];
 } else {
@@ -13,6 +150,8 @@ for (let index = 0; index < toDoArr.length; index++) {
   listItems.textContent = toDo;
   $(".listBtn").append(listItems);
 }
+
+//Calendar
 
 var months = [
   "Jan",
@@ -139,145 +278,17 @@ function drop(ev) {
   ev.target.appendChild(document.getElementById(data));
 }
 
-$(".default").on("click", function () {
-  $("#inputBox").addClass("hide");
-  $(".itinerary").removeClass("hide");
-  $(".cube").removeClass("hide");
-  storeBtn();
-  // console.log("works")
-});
-
-$("#list").on("click", function (event) {
-  event.preventDefault();
-  var list = $(".thingsToDo").val().trim();
-  var listItems = $("<li>");
-  listItems.text(list);
-  listItems.attr("id", "drag1");
-  listItems.attr("ondragstart", "drag(event)");
-  listItems.attr("draggable", "true");
-  $(".listBtn").append(listItems);
-  toDoArr.push(list);
-  localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
-
-  $(".thingsToDo").empty();
-});
-
-$("#clear").on("click", function () {
-  setLocalStorage("toDoArr", empty);
-});
-
-$(".submitBtn").on("click", function (event) {
-  event.preventDefault();
-  var cityName = $("#search").val().trim();
-  console.log(cityName);
-  // localStorage.setItem("toDoArr", cityName);
-});
-
-function omNomNom() {
-  var APIKey = "78c8bb055391228975fd9d7974ac9137";
-  var cityName = $("#search").val().trim();
-  var queryUrl =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    cityName +
-    "&appid=" +
-    APIKey;
-
-  $.ajax({
-    url: queryUrl,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response);
-  });
-}
-
-function hotels() {
-  var cityName = $("#search").val().trim();
-  const settings = {
-    async: true,
-    crossDomain: true,
-    url:
-      "https://hotels4.p.rapidapi.com/locations/search?query=" +
-      cityName +
-      "&locale=en_US",
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
-      "x-rapidapi-host": "hotels4.p.rapidapi.com",
-    },
-  };
-
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    console.log(response.suggestions[1].entities[0].name);
-    var hotel1 = $("<div>").text(response.suggestions[1].entities[0].name);
-    var hotel2 = $("<div>").text(response.suggestions[1].entities[1].name);
-    var hotel3 = $("<div>").text(response.suggestions[1].entities[2].name);
-
-    $(".Ofields").append(hotel1, hotel2, hotel3);
-  });
-}
-
-$(".weatherBtn").on("click", function () {
-  $(".Ofields").text("Weather");
-  omNomNom();
-});
-$(".hotelBtn").on("click", function () {
-  $(".Ofields").text("Hotels");
-  hotels();
-});
-
 $(".eventBtn").on("click", function () {
   $(".Ofields").text("Calendar");
   calendarBtn();
 });
 
-function storeBtn() {
-  var cityName = $("#search").val().trim();
-  localStorage.setItem("City Name", cityName);
-}
-
-function getBtn() {
-  var storageName = localStorage.getItem("City Name");
-  $(".form-control").attr("value", storageName);
-  console.log(storageName);
-}
-getBtn();
-
 function calendarBtn() {
   $(".days").removeClass("hide");
 }
 
-function sites() {
-  var cityName = $("#search").val().trim();
-  const settings = {
-    async: true,
-    crossDomain: true,
-    url:
-      "https://hotels4.p.rapidapi.com/locations/search?query=" +
-      cityName +
-      "&locale=en_US",
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
-      "x-rapidapi-host": "hotels4.p.rapidapi.com",
-    },
-  };
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    console.log(response.suggestions[2].entities[0].name);
-    var site1 = $("<div>").text(response.suggestions[2].entities[0].name);
-    var site2 = $("<div>").text(response.suggestions[2].entities[1].name);
-    var site3 = $("<div>").text(response.suggestions[2].entities[2].name);
 
-    $(".Ofields").append(site1, site2, site3);
-  });
-}
-
-$(".wanderBtn").on("click", function () {
-  $(".Ofields").text("Sites");
-  sites();
-});
 
 //cube
 var box = document.querySelector('.box');
