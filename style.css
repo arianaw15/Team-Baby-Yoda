@@ -8,10 +8,9 @@ body{
 }
 
 #inputBox {
-background-color: rgb(255,255,255);
-width: 50%;
-
-height: 300px;
+    background-color: rgb(255,255,255);
+    width: 50%;
+    height: 360px;
     border-radius: 5px;
 }
 
@@ -27,7 +26,6 @@ height: 300px;
     width: 55%;
     height: 360px;
     border-radius: 7px;
-
     text-align: center;
     display: block;
     margin-top: 80px;
@@ -37,6 +35,7 @@ height: 300px;
     padding-top: 10px;
     
 }
+
 .submitBtn{
     background-color: #19779c;
     color:#E1E8EC;
