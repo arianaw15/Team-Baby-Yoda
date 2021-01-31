@@ -8,6 +8,8 @@ $(".submitBtn").on("click", function (event) {
   event.preventDefault();
   var cityName = $("#search").val().trim();
   console.log(cityName);
+  // var city=$("<div>").text(cityName);
+  // $(".Ttd").prepend(city)
   // localStorage.setItem("toDoArr", cityName);
 });
 
@@ -20,18 +22,23 @@ function omNomNom() {
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName +
     "&appid=" +
-    APIKey;
+    APIKey+"&units=imperial";
 
   $.ajax({
     url: queryUrl,
     method: "GET",
   }).then(function (response) {
     console.log(response);
+    var weather = $("<h4>").text("Weather in "+cityName+":")
+    var temp = $("<div>").text("Temperature (in Fahrenheit): " + (response.main.temp)+ " degrees")
+    var description = $("<div>").text("The Skies Are " + (response.weather[0].main))
+    
+    $(".Ofields").append(weather,temp,description);
   });
 }
 
 $(".weatherBtn").on("click", function () {
-  $(".Ofields").text("Weather");
+  $(".Ofields").text("");
   omNomNom();
 });
 
@@ -55,17 +62,17 @@ function hotels() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     console.log(response.suggestions[1].entities[0].name);
-    var hotel1 = (response.suggestions[1].entities[0].name);
-    var hotel2 = (response.suggestions[1].entities[1].name);
-    var hotel3 = (response.suggestions[1].entities[2].name);
-    var hotelList= $("<li>")
-    hotelList.text(hotel1,hotel2,hotel3)
-$(".Ofields").append(hotelList);
+    var hotel1 = $("<li>").text(response.suggestions[1].entities[0].name);
+    var hotel2 = $("<li>").text(response.suggestions[1].entities[1].name);
+    var hotel3 = $("<li>").text(response.suggestions[1].entities[2].name);
+    var hotels = $("<h4>").text("Hotels in "+cityName+":")
+$(".Ofields").append(hotels,hotel1,hotel2,hotel3);
   });
 }
 
-$(".hotelBtn").on("click", function () {
-  $(".Ofields").text("Hotels");
+$(".hotelBtn").on("click", function (event) {
+  event.preventDefault();
+  $(".Ofields").text("");
   hotels();
 });
 
@@ -104,16 +111,17 @@ function sites() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     console.log(response.suggestions[2].entities[0].name);
-    var site1 = (response.suggestions[2].entities[0].name);
-    var site2 = (response.suggestions[2].entities[1].name);
-    var site3 = (response.suggestions[2].entities[2].name);
-
-    $(".Ofields").text(site1).append(site2, site3);
+    var site1 = $("<li>").text(response.suggestions[2].entities[0].name);
+    var site2 = $("<li>").text(response.suggestions[2].entities[1].name);
+    var site3 = $("<li>").text(response.suggestions[2].entities[2].name);
+    var sites = $("<h4>").text("Sites in "+cityName+":")
+    $(".Ofields").append(sites,site1,site2,site3);
   });
 }
 
-$(".wanderBtn").on("click", function () {
-  $(".Ofields").text("Sites");
+$(".wanderBtn").on("click", function (event) {
+  $(".Ofields").text("");
+  event.preventDefault();
   sites();
 });
 
@@ -280,7 +288,6 @@ function drop(ev) {
 }
 
 $(".eventBtn").on("click", function () {
-  $(".Ofields").text("Calendar");
   calendarBtn();
 });
 
