@@ -16,6 +16,7 @@ height: 300px;
 }
 
 .nav-wrapper{
+    position:relative;
     background-color: rgb(255,255,255);
     color: #F9D002;
     margin-top: 20px;
@@ -124,19 +125,19 @@ h3{
 
 .itinerary{
     margin-top: 50px;
+    position: relative;
 
 }
 
 .Ttd{
     font-size: 18px;
     font-weight: bold;
-    float:left;
     
 }
 .Ofields{
-    float: right;
     font-size: 18px;
     font-weight: bold;
+    margin-top: -20px;
 }
 
 
@@ -170,12 +171,12 @@ h3{
   }
   
   .box.show-angle       { transform: translateZ( -100px) rotateX( -45deg) rotateY(  45deg); }
-  .box.show-front       { transform: translateZ( -75px) rotateY(  0deg); }
-  .box.show-back        { transform: translateZ( -75px) rotateY( -180deg); }
-  .box.show-right       { transform: translateZ( -75px) rotateY( -90deg); }
-  .box.show-left        { transform: translateZ( -75px) rotateY(  90deg); }
-  .box.show-top         { transform: translateZ( -75px) rotateX( -90deg); }
-  .box.show-bottom      { transform: translateZ( -75px) rotateX(  90deg); }
+  .box.show-front       { transform: translateZ( -80px) rotateY(  0deg); }
+  .box.show-back        { transform: translateZ( -80px) rotateY( -180deg); }
+  .box.show-right       { transform: translateZ( -80px) rotateY( -90deg); }
+  .box.show-left        { transform: translateZ( -80px) rotateY(  90deg); }
+  .box.show-top         { transform: translateZ( -80px) rotateX( -90deg); }
+  .box.show-bottom      { transform: translateZ( -80px) rotateX(  90deg); }
   
   
   .box__face {
