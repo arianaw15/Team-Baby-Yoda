@@ -130,22 +130,25 @@ h3{
 .Ttd{
     font-size: 18px;
     font-weight: bold;
+    float:left;
     
 }
-
 .Ofields{
+    float: right;
     font-size: 18px;
     font-weight: bold;
-    
 }
 
+
+
 /* Cube */
-.cube-container{
-    position: absolute;
-    background-color: transparent;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+  .cube-container{
+      position: absolute;
+      background-color:transparent;
+      top: 25%;
+      left: 85%;
+      transform: translate(-50%, -50%);
   }
   
   .scene {
@@ -153,6 +156,8 @@ h3{
     height: 300px;
     margin: 80px;
     perspective: 400px;
+    color: black;
+    z-index: -1;
   }
   
   .box {
@@ -165,18 +170,18 @@ h3{
   }
   
   .box.show-angle       { transform: translateZ( -100px) rotateX( -45deg) rotateY(  45deg); }
-  .box.show-front       { transform: translateZ( 100px) rotateY(  0deg); }
-  .box.show-back        { transform: translateZ( 100px) rotateY( -180deg); }
-  .box.show-right       { transform: translateZ( 100px) rotateY( -90deg); }
-  .box.show-left        { transform: translateZ( 100px) rotateY(  90deg); }
-  .box.show-top         { transform: translateZ( 100px) rotateX( -90deg); }
-  .box.show-bottom      { transform: translateZ( 100px) rotateX(  90deg); }
+  .box.show-front       { transform: translateZ( -75px) rotateY(  0deg); }
+  .box.show-back        { transform: translateZ( -75px) rotateY( -180deg); }
+  .box.show-right       { transform: translateZ( -75px) rotateY( -90deg); }
+  .box.show-left        { transform: translateZ( -75px) rotateY(  90deg); }
+  .box.show-top         { transform: translateZ( -75px) rotateX( -90deg); }
+  .box.show-bottom      { transform: translateZ( -75px) rotateX(  90deg); }
   
   
   .box__face {
     position: absolute;
     border: .5px solid white;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     color: white;
     text-align: center;
