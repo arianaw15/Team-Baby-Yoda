@@ -55,11 +55,12 @@ function hotels() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     console.log(response.suggestions[1].entities[0].name);
-    var hotel1 = $("<p>").text(response.suggestions[1].entities[0].name);
-    var hotel2 = $("<p>").text(response.suggestions[1].entities[1].name);
-    var hotel3 = $("<p>").text(response.suggestions[1].entities[2].name);
-$(".hotelBox").removeClass("hide");
-    $(".hotelBox").append(hotel1, hotel2, hotel3);
+    var hotel1 = (response.suggestions[1].entities[0].name);
+    var hotel2 = (response.suggestions[1].entities[1].name);
+    var hotel3 = (response.suggestions[1].entities[2].name);
+    var hotelList= $("<li>")
+    hotelList.text(hotel1,hotel2,hotel3)
+$(".Ofields").append(hotelList);
   });
 }
 
