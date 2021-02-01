@@ -29,11 +29,20 @@ function omNomNom() {
     method: "GET",
   }).then(function (response) {
     console.log(response);
-    var weather = $("<h4>").text("Weather in "+cityName+":")
-    var temp = $("<div>").text("Temperature (in Fahrenheit): " + (response.main.temp)+ " degrees")
-    var description = $("<div>").text("The Skies Are " + (response.weather[0].main))
-    
-    $(".Ofields").append(weather,temp,description);
+    var weather = $("<h4>").text("Weather in "+cityName+":");
+    var temp = $("<div>").text("Temperature: " + (response.main.temp)+ " degrees fahrenheit");
+    var description = $("<div>").text("Weather Description: " + (response.weather[0].main));
+    var humidity = $("<div>").text("Humidity: " + (response.main.humidity));
+    $(".Ofields").append(weather,description,temp,humidity);
+
+    if (response.weather[0].main === "Clouds"){
+      var weatherImg = $("<div>").html("<span class=material-icons weather style=font-size:50px>wb_cloudy</span>");
+      $(".Ofields").append(weatherImg);
+    }
+    else if(response.weather[0].main==="Clear"){
+      var weatherImg = $("<div>").html("<span class=material-icons style=font-size:50px>wb_sunny</span>");
+      $(".Ofields").append(weatherImg);
+    }
   });
 }
 
@@ -54,7 +63,7 @@ function hotels() {
       "&locale=en_US",
     method: "GET",
     headers: {
-      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
+      "x-rapidapi-key": "a0eab1f340msh610e3e1a39ef173p1fb060jsnfe640e80378c",
       "x-rapidapi-host": "hotels4.p.rapidapi.com",
     },
   };
@@ -103,7 +112,7 @@ function sites() {
       "&locale=en_US",
     method: "GET",
     headers: {
-      "x-rapidapi-key": "86b46a0ef5msh80d1a1ac851ef12p1478bfjsna7deacd463ee",
+      "x-rapidapi-key": "a0eab1f340msh610e3e1a39ef173p1fb060jsnfe640e80378c",
       "x-rapidapi-host": "hotels4.p.rapidapi.com",
     },
   };
@@ -133,6 +142,23 @@ $(".default").on("click", function () {
 });
 
 //Things to Do List + Drag and Drop  Function
+$("#list").on("click", function (event) {
+  event.preventDefault();
+  var list = $(".thingsToDo").val().trim();
+  var listItems = document.createElement("li");
+  listItems.textContent = list;
+  var listItems = $("<li>");
+  listItems.text(list);
+  listItems.attr("id", "drag1")
+  listItems.attr("ondragstart", "drag(event)")
+  listItems.attr("draggable", "true")
+  $(".listBtn").append(listItems);
+  toDoArr.push(list);
+  localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
+})
+//  $("#list").on("click", function (event) {
+
+// });
 $("#list").on("click", function (event) {
   event.preventDefault();
   var list = $(".thingsToDo").val().trim();
@@ -288,6 +314,7 @@ function drop(ev) {
 }
 
 $(".eventBtn").on("click", function () {
+  $(".Ofields").text("");
   calendarBtn();
 });
 
