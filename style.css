@@ -144,6 +144,7 @@ h3{
     margin-top: -20px;
 }
 
+
 h4 {
     font-size: 40px;
     font-weight: bolder;
@@ -164,8 +165,8 @@ h4 {
     height: 300px;
     margin: 80px;
     perspective: 400px;
-    color: black;
-    z-index: -1;
+    /* color: black;
+    z-index: -1; */
   }
   
   .box {
