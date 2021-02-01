@@ -155,8 +155,8 @@ h3{
     height: 300px;
     margin: 80px;
     perspective: 400px;
-    color: black;
-    z-index: -1;
+    /* color: black;
+    z-index: -1; */
   }
   
   .box {

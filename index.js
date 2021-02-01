@@ -3,14 +3,11 @@ const sideNav = document.querySelector(".sidenav");
 M.Sidenav.init(sideNav, {});
 
 
-
+//Submit Button + Location
 $(".submitBtn").on("click", function (event) {
   event.preventDefault();
   var cityName = $("#search").val().trim();
   console.log(cityName);
-  // var city=$("<div>").text(cityName);
-  // $(".Ttd").prepend(city)
-  // localStorage.setItem("toDoArr", cityName);
 });
 
 //Weather Button + Function
@@ -29,7 +26,7 @@ function omNomNom() {
     method: "GET",
   }).then(function (response) {
     console.log(response);
-    var weather = $("<h4>").text("Weather in "+cityName+":");
+    var weather = $("<h4>").text("Current weather in "+cityName+":");
     var temp = $("<div>").text("Temperature: " + (response.main.temp)+ " degrees fahrenheit");
     var description = $("<div>").text("Weather Description: " + (response.weather[0].main));
     var humidity = $("<div>").text("Humidity: " + (response.main.humidity));
@@ -43,11 +40,20 @@ function omNomNom() {
       var weatherImg = $("<div>").html("<span class=material-icons style=font-size:50px>wb_sunny</span>");
       $(".Ofields").append(weatherImg);
     }
+    else if(response.weather[0].main === "Snow"){
+      var weatherImg = $("<div>").html("<span class=material-icons style=font-size:50px>ac_unit</span>");
+      $(".Ofields").append(weatherImg);
+    }
+    else if(response.weather[0].main === "Rain"){
+      var weatherImg = $("<div>").html("<span class=material-icons style=font-size:50px>opacity</span>");
+      $(".Ofields").append(weatherImg);
+    }
   });
 }
 
 $(".weatherBtn").on("click", function () {
   $(".Ofields").text("");
+  $(".days").addClass("hide");
   omNomNom();
 });
 
@@ -74,14 +80,18 @@ function hotels() {
     var hotel1 = $("<li>").text(response.suggestions[1].entities[0].name);
     var hotel2 = $("<li>").text(response.suggestions[1].entities[1].name);
     var hotel3 = $("<li>").text(response.suggestions[1].entities[2].name);
-    var hotels = $("<h4>").text("Hotels in "+cityName+":")
+    var hotels = $("<h4>").text("Hotels in "+cityName+":");
 $(".Ofields").append(hotels,hotel1,hotel2,hotel3);
+var hotelLink= $("<button>");
+hotelLink.html("<a href=https://www.google.com/search?q=hotels+in+"+cityName+">Other Hotels</a>")
+$(".Ofields").append(hotelLink);
+
   });
 }
 
-$(".hotelBtn").on("click", function (event) {
-  event.preventDefault();
+$(".hotelBtn").on("click", function () {
   $(".Ofields").text("");
+  $(".days").addClass("hide");
   hotels();
 });
 
@@ -125,12 +135,16 @@ function sites() {
     var site3 = $("<li>").text(response.suggestions[2].entities[2].name);
     var sites = $("<h4>").text("Sites in "+cityName+":")
     $(".Ofields").append(sites,site1,site2,site3);
+    var sitesLink= $("<button>");
+    sitesLink.html("<a href=https://www.google.com/search?q=sites+in+"+cityName+">Other Sites</a>");
+$(".Ofields").append(sitesLink);
+    
   });
 }
 
-$(".wanderBtn").on("click", function (event) {
+$(".wanderBtn").on("click", function () {
   $(".Ofields").text("");
-  event.preventDefault();
+  $(".days").addClass("hide");
   sites();
 });
 

@@ -15,6 +15,8 @@
 
 </head>
 
+
+
 <body>
   <nav>
     <div class="nav-wrapper radio-group" style="color:rgb(255,255,255);">
@@ -29,10 +31,10 @@
                 style="color: #F9D002;">wb_sunny</i>
             </label></a></li>
         <li><a>
-            <label>
-              <input type="radio" name="rotate-cube-side" value="front" /><i class="material-icons hotelBtn"
-                style="color: #F9D002;">local_hotel</i>
-            </label></a></li>
+          <label>
+            <input type="radio" name="rotate-cube-side" value="front" /><i class="material-icons hotelBtn"
+            style="color: #F9D002;">local_hotel</i>
+          </label></a></li>
         <li><a>
             <label>
               <input type="radio" name="rotate-cube-side" value="left" /> <i class="material-icons wanderBtn"
@@ -46,11 +48,26 @@
       </ul>
     </div>
   </nav>
-  <ul class="sidenav" id="mobile-nav">
-    <li><a><i class="material-icons weatherBtn" style="color: #F9D002;">wb_sunny</i></a></li>
-    <li><a><i class="material-icons hotelBtn" style="color: #F9D002;">local_hotel</i></a></li>
-    <li><a><i class="material-icons wanderBtn" style="color: #F9D002;">directions_walk</i></a></li>
-    <li><a><i class="material-icons eventBtn" style="color: #F9D002;">event_note</i></a></li>
+  <ul class="sidenav radio-group" id="mobile-nav">
+    <li><a><label>
+      <input type="radio" name="rotate-cube-side" value="bottom" /><i class="material-icons weatherBtn"
+        style="color: #F9D002;">wb_sunny</i>
+    </label></a></li>
+  <li><a>
+    <label>
+      <input type="radio" name="rotate-cube-side" value="front" /><i class="material-icons hotelBtn"
+        style="color: #F9D002;">local_hotel</i>
+    </label></a></li>
+<li><a>
+    <label>
+      <input type="radio" name="rotate-cube-side" value="left" /> <i class="material-icons wanderBtn"
+        style="color: #F9D002;">directions_walk</i>
+    </label></a></li>
+    <li><a>
+      <label>
+        <input type="radio" name="rotate-cube-side" value="back" /><i class="material-icons eventBtn"
+          style="color: #F9D002;">event_note</i>
+      </label></a></li>
   </ul>
 
   <div id="inputBox" class="container hoverable z-depth-5">
