@@ -7,11 +7,11 @@ body{
     font-family: 'Comfortaa', cursive,'Assistant', sans-serif;
 }
 
+/*First Page*/
 #inputBox {
-background-color: rgb(255,255,255);
-width: 50%;
-
-height: 300px;
+    background-color: rgb(255,255,255);
+    width: 50%;
+    height: 360px;
     border-radius: 5px;
 }
 
@@ -55,7 +55,7 @@ color: black;
     display: none;
 }
 
-
+/*Calendar features*/
 .day {
     height: 90px;
     width: 90px;
@@ -109,6 +109,7 @@ h3{
     font-size: 20px;
 }
 
+/*Add to To Do list*/
 #list{
     border: none;
     background-color: #F9D002;
@@ -116,28 +117,37 @@ h3{
     border-radius: 8px;
 }
 
-#clear{
+/* #clear{
     border: none;
     background-color: #F9D002;
     padding: 5px;
     border-radius: 8px;
-}
+} */
 
-.itinerary{
+/* .itinerary{
     margin-top: 50px;
     position: relative;
 
-}
+} */
 
+/*Lists*/
 .Ttd{
-    font-size: 18px;
+    margin-top: 50px;
+    font-size: 23px;
     font-weight: bold;
+    position: relative;
     
 }
 .Ofields{
-    font-size: 18px;
+    font-size: 23px;
     font-weight: bold;
     margin-top: -20px;
+}
+
+
+h4 {
+    font-size: 40px;
+    font-weight: bolder;
 }
 
 /* Cube */
