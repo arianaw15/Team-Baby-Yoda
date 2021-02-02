@@ -8,9 +8,6 @@ This page calls 2 API for hotels, sites and weather. It utilizes the local stora
 
 # Images
 
-Submit Page
-![Submit page with most recent search](/Assets/submit page.PNG)
-
 Hotel Page
 ![Hotel page with most recent search](/Assets/Hotels.PNG)
 
@@ -19,7 +16,6 @@ Weather Page
 
 Calendar Page
 ![Calendar page after drag and drop is successful](/Assets/Calendar.PNG)
-Weather Page
 
 # Links
 
