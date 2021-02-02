@@ -219,11 +219,23 @@ h4 {
     line-height: 300px;
   }
   
+  .rotateimg45 {
+    margin-top: 16%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    -webkit-transform:rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
   .box__face--front  { background:#EED301; }
-  .box__face--right  { background:#99D8DD; }
-  .box__face--back   { background:#01587A; }
-  .box__face--left   { background:#E1E8EC; }
-  .box__face--top    { background:#5CB3C1; }
+  .box__face--right  { background:#279097; }
+  .box__face--back   { background:#E1E8EC; }
+  .box__face--left   { background:#01587A; }
+  .box__face--top    { background:#FFFFFF; }
   .box__face--bottom { background:#E7DE4D; }
   
   

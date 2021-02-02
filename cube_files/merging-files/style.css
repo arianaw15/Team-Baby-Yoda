@@ -25,12 +25,12 @@ body { font-family: sans-serif;background: linear-gradient(25deg,#CBD4D7,#4f5253
 }
 
 .box.show-angle       { transform: translateZ( -100px) rotateX( -45deg) rotateY(  45deg); }
-.box.show-front       { transform: translateZ( 100px) rotateY(  0deg); }
-.box.show-back        { transform: translateZ( 175px) rotateY( -180deg); }
-.box.show-right       { transform: translateZ( 175px) rotateY( -90deg); }
+.box.show-front       { transform: translateZ( 75px) rotateY(  0deg); }
+.box.show-back        { transform: translateZ( 75px) rotateY( -180deg); }
+.box.show-right       { transform: translateZ( 75px) rotateY( -90deg); }
 .box.show-left        { transform: translateZ( 75px) rotateY(  90deg); }
-.box.show-top         { transform: translateZ( 100px) rotateX( -90deg); }
-.box.show-bottom      { transform: translateZ( 175px) rotateX(  90deg); }
+.box.show-top         { transform: translateZ( 75px) rotateX( -90deg); }
+.box.show-bottom      { transform: translateZ( 75px) rotateX(  90deg); }
 
 .box__face {
   position: absolute;
