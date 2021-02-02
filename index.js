@@ -163,29 +163,12 @@ $("#list").on("click", function (event) {
   listItems.textContent = list;
   var listItems = $("<li>");
   listItems.text(list);
-  listItems.attr("id", "drag1")
+  listItems.attr("id", list)
   listItems.attr("ondragstart", "drag(event)")
   listItems.attr("draggable", "true")
   $(".listBtn").append(listItems);
   toDoArr.push(list);
   localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
-})
-//  $("#list").on("click", function (event) {
-
-// });
-$("#list").on("click", function (event) {
-  event.preventDefault();
-  var list = $(".thingsToDo").val().trim();
-  var listItems = $("<li>");
-  listItems.text(list);
-  listItems.attr("id", "drag1");
-  listItems.attr("ondragstart", "drag(event)");
-  listItems.attr("draggable", "true");
-  $(".listBtn").append(listItems);
-  toDoArr.push(list);
-  localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
-
-  $(".thingsToDo").empty();
 });
 
 if (localStorage.getItem("toDoArr") == null) {
