@@ -9,16 +9,16 @@ This page calls 2 API for hotels, sites and weather. It utilizes the local stora
 # Images
 
 Submit Page
-![Submit page with most recent search](Assets\submit page.PNG)
+![Submit page with most recent search](/Assets/submit page.PNG)
 
 Hotel Page
-![Hotel page with most recent search](Assets\Hotels.PNG)
+![Hotel page with most recent search](/Assets/Hotels.PNG)
 
 Weather Page
-![Weather page with current conditions](Assets\weather.PNG)
+![Weather page with current conditions](/Assets/weather.PNG)
 
 Calendar Page
-![Calendar page after drag and drop is successful](Assets\Calendar.PNG)
+![Calendar page after drag and drop is successful](/Assets/Calendar.PNG)
 Weather Page
 
 # Links
