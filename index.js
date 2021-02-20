@@ -156,32 +156,45 @@ $(".default").on("click", function () {
 });
 
 //Things to Do List + Drag and Drop  Function
+var theList = JSON.parse(localStorage.getItem("toDoArr")) || [];
+
 $("#list").on("click", function (event) {
   event.preventDefault();
   var list = $(".thingsToDo").val().trim();
-  var listItems = document.createElement("li");
-  listItems.textContent = list;
-  var listItems = $("<li>");
-  listItems.text(list);
-  listItems.attr("id", list)
-  listItems.attr("ondragstart", "drag(event)")
-  listItems.attr("draggable", "true")
-  $(".listBtn").append(listItems);
-  toDoArr.push(list);
-  localStorage.setItem("toDoArr", JSON.stringify(toDoArr));
+  theList.push(list)
+  localStorage.setItem("toDoArr", JSON.stringify(theList));
+  renderToDoList();
+  
 });
 
-if (localStorage.getItem("toDoArr") == null) {
-  var toDoArr = [];
-} else {
-  var toDoArr = JSON.parse(localStorage.getItem("toDoArr"));
+function renderToDoList(){
+  $("#daList").text("");
+  for (let i=0; i<theList.length; i++){
+    var listItems = $("<li>");
+    listItems.text(theList[i]);
+    listItems.attr("id", list)
+    listItems.attr("ondragstart", "drag(event)")
+    listItems.attr("draggable", "true")
+    $("#daList").append(listItems);
+  }
 }
-for (let index = 0; index < toDoArr.length; index++) {
-  var toDo = toDoArr[index];
-  var listItems = document.createElement("li");
-  listItems.textContent = toDo;
-  $(".listBtn").append(listItems);
-}
+
+$("#clear-history").on("click",function() {
+  theList = [];
+  renderToDoList();
+})
+
+// if (localStorage.getItem("toDoArr") == null) {
+//   var toDoArr = [];
+// } else {
+//   var toDoArr = JSON.parse(localStorage.getItem("toDoArr"));
+// }
+// for (let index = 0; index < toDoArr.length; index++) {
+//   var toDo = toDoArr[index];
+//   var listItems = document.createElement("li");
+//   listItems.textContent = toDo;
+//   $(".listBtn").append(listItems);
+// }
 
 //Calendar
 
@@ -287,8 +300,11 @@ function loadCalendarDays() {
     d.attr("ondrop", "drop(event)");
     d.attr("ondragover", "allowDrop(event)");
     d.text(tmp);
+    d.addClass("savePls")
     $("#theDays").append(d);
   }
+
+  
 
   // var clear = $("<tr class = clear>");
   // $("#theDays").append(clear);
